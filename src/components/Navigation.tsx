@@ -1,132 +1,127 @@
-import { useState, useEffect } from "react";
-import { Command, Menu } from "lucide-react";
-import { Button } from "./ui/button";
-import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";
+
+import React, { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Menu, X } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const Navigation = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      const offset = window.scrollY;
+      if (offset > 50) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
     };
 
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
-  const scrollToSection = (sectionId: string) => {
-    if (sectionId === 'testimonials') {
-      const testimonialSection = document.querySelector('.animate-marquee');
-      if (testimonialSection) {
-        const yOffset = -100; // Offset to account for the fixed header
-        const y = testimonialSection.getBoundingClientRect().top + window.pageYOffset + yOffset;
-        window.scrollTo({ top: y, behavior: 'smooth' });
-      }
-    } else if (sectionId === 'cta') {
-      const ctaSection = document.querySelector('.button-gradient');
-      if (ctaSection) {
-        const yOffset = -100;
-        const y = ctaSection.getBoundingClientRect().top + window.pageYOffset + yOffset;
-        window.scrollTo({ top: y, behavior: 'smooth' });
-      }
-    } else {
-      const element = document.getElementById(sectionId);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-      }
-    }
-  };
-
   const navItems = [
-    { name: "Features", href: "#features", onClick: () => scrollToSection('features') },
-    { name: "Prices", href: "#pricing", onClick: () => scrollToSection('pricing') },
-    { name: "Testimonials", href: "#testimonials", onClick: () => scrollToSection('testimonials') },
+    { name: "Accueil", href: "#home" },
+    { name: "À propos", href: "#about" },
+    { name: "Compétences", href: "#skills" },
+    { name: "Projets", href: "#projects" },
+    { name: "Services", href: "#services" },
+    { name: "Contact", href: "#contact" },
   ];
 
   return (
-    <header
-      className={`fixed top-3.5 left-1/2 -translate-x-1/2 z-50 transition-all duration-300 rounded-full ${
-        isScrolled 
-          ? "h-14 bg-[#1B1B1B]/40 backdrop-blur-xl border border-white/10 scale-95 w-[90%] max-w-2xl" 
-          : "h-14 bg-[#1B1B1B] w-[95%] max-w-3xl"
+    <header 
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+        scrolled ? "bg-black/80 backdrop-blur-lg border-b border-white/10" : "bg-transparent"
       }`}
     >
-      <div className="mx-auto h-full px-6">
-        <nav className="flex items-center justify-between h-full">
-          <div className="flex items-center gap-2">
-            <Command className="w-5 h-5 text-primary" />
-            <span className="font-bold text-base">CryptoTrade</span>
-          </div>
+      <div className="container mx-auto px-4">
+        <div className="flex items-center justify-between h-16">
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5 }}
+            className="text-xl font-semibold"
+          >
+            <a href="#" className="text-gradient font-playfair">Sophie</a>
+          </motion.div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-6">
+          <nav className="hidden md:flex items-center space-x-8">
             {navItems.map((item) => (
-              <a
+              <motion.div
                 key={item.name}
-                href={item.href}
-                onClick={(e) => {
-                  e.preventDefault();
-                  if (item.onClick) {
-                    item.onClick();
-                  }
-                }}
-                className="text-sm text-muted-foreground hover:text-foreground transition-all duration-300"
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
               >
-                {item.name}
-              </a>
+                <a
+                  href={item.href}
+                  className="text-sm font-medium text-white/70 hover:text-white transition-colors relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-[-5px] after:left-0 after:bg-gradient-to-r after:from-primary after:to-secondary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left"
+                >
+                  {item.name}
+                </a>
+              </motion.div>
             ))}
-            <Button 
-              onClick={() => scrollToSection('cta')}
-              size="sm"
-              className="button-gradient"
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
             >
-              Start Trading
+              <Button className="button-gradient">
+                CV
+              </Button>
+            </motion.div>
+          </nav>
+
+          {/* Mobile Navigation Trigger */}
+          <div className="md:hidden">
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={() => setIsOpen(!isOpen)}
+              className="text-white"
+            >
+              {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </Button>
           </div>
-
-          {/* Mobile Navigation */}
-          <div className="md:hidden">
-            <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
-              <SheetTrigger asChild>
-                <Button variant="outline" size="icon" className="glass">
-                  <Menu className="h-5 w-5" />
-                </Button>
-              </SheetTrigger>
-              <SheetContent className="bg-[#1B1B1B]">
-                <div className="flex flex-col gap-4 mt-8">
-                  {navItems.map((item) => (
-                    <a
-                      key={item.name}
-                      href={item.href}
-                      className="text-lg text-muted-foreground hover:text-foreground transition-colors"
-                      onClick={(e) => {
-                        e.preventDefault();
-                        setIsMobileMenuOpen(false);
-                        if (item.onClick) {
-                          item.onClick();
-                        }
-                      }}
-                    >
-                      {item.name}
-                    </a>
-                  ))}
-                  <Button 
-                    onClick={() => {
-                      setIsMobileMenuOpen(false);
-                      scrollToSection('cta');
-                    }}
-                    className="button-gradient mt-4"
-                  >
-                    Start Trading
-                  </Button>
-                </div>
-              </SheetContent>
-            </Sheet>
-          </div>
-        </nav>
+        </div>
       </div>
+
+      {/* Mobile Navigation Menu */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.3 }}
+            className="md:hidden glass border-t border-white/10"
+          >
+            <div className="container mx-auto px-4 py-4">
+              <nav className="flex flex-col space-y-4">
+                {navItems.map((item) => (
+                  <a
+                    key={item.name}
+                    href={item.href}
+                    className="py-2 text-white/80 hover:text-white transition-colors"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    {item.name}
+                  </a>
+                ))}
+                <Button className="button-gradient w-full mt-4">
+                  CV
+                </Button>
+              </nav>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   );
 };

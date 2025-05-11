@@ -1,4 +1,6 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap');
 @import url('https://fonts.geist-ui.dev/font.css');
 
 @tailwind base;
@@ -7,25 +9,25 @@
 
 @layer base {
   :root {
-    --background: 0 0% 4%;
+    --background: 270 30% 5%;
     --foreground: 0 0% 100%;
-    --card: 0 0% 4%;
+    --card: 270 30% 7%;
     --card-foreground: 0 0% 100%;
-    --popover: 0 0% 4%;
+    --popover: 270 30% 7%;
     --popover-foreground: 0 0% 100%;
-    --primary: 142 84% 58%;
+    --primary: 260 60% 60%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 0 0% 9%;
+    --secondary: 300 95% 65%;
     --secondary-foreground: 0 0% 100%;
-    --muted: 0 0% 9%;
-    --muted-foreground: 0 0% 64%;
-    --accent: 0 0% 9%;
+    --muted: 270 20% 15%;
+    --muted-foreground: 270 5% 70%;
+    --accent: 195 100% 57%;
     --accent-foreground: 0 0% 100%;
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
-    --border: 0 0% 12%;
-    --input: 0 0% 12%;
-    --ring: 142 84% 58%;
+    --border: 270 20% 20%;
+    --input: 270 20% 20%;
+    --ring: 260 60% 60%;
     --radius: 0.75rem;
   }
 }
@@ -35,7 +37,7 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground font-sans antialiased;
+    @apply bg-background text-foreground font-inter antialiased;
     font-feature-settings: "rlig" 1, "calt" 1;
   }
 }
@@ -53,7 +55,7 @@
   inset: 0;
   border-radius: inherit;
   padding: 1px;
-  background: linear-gradient(225deg, rgba(255,255,255,0.2), rgba(255,255,255,0.05));
+  background: linear-gradient(225deg, rgba(155, 135, 245, 0.4), rgba(217, 70, 239, 0.3));
   -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
   mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
   -webkit-mask-composite: xor;
@@ -66,9 +68,75 @@
 }
 
 .text-gradient {
-  @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-[#22c55e];
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary;
 }
 
 .button-gradient {
-  @apply bg-gradient-to-r from-primary to-[#22c55e] hover:opacity-90 transition-opacity rounded-full;
+  @apply bg-gradient-to-r from-primary to-secondary hover:opacity-90 transition-opacity rounded-full;
+}
+
+.neon-border {
+  position: relative;
+}
+
+.neon-border::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: inherit;
+  padding: 2px;
+  background: linear-gradient(45deg, #9b87f5, #D946EF, #33C3F0);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+.shimmer {
+  background: linear-gradient(90deg, 
+    rgba(255,255,255,0) 0%, 
+    rgba(255,255,255,0.05) 50%, 
+    rgba(255,255,255,0) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+.content-grid {
+  --padding-inline: 1.5rem;
+  --content-max-width: 70ch;
+  --breakout-max-width: 85ch;
+
+  --breakout-size: calc(
+    (var(--breakout-max-width) - var(--content-max-width)) / 2
+  );
+
+  display: grid;
+  grid-template-columns:
+    [full-start] minmax(var(--padding-inline), 1fr)
+    [breakout-start] minmax(0, var(--breakout-size))
+    [content-start] min(
+      100% - (var(--padding-inline) * 2),
+      var(--content-max-width)
+    )
+    [content-end]
+    minmax(0, var(--breakout-size)) [breakout-end]
+    minmax(var(--padding-inline), 1fr) [full-end];
+}
+
+.content-grid > * {
+  grid-column: content;
+}
+
+.content-grid > .full-width {
+  grid-column: full;
+}
+
+.content-grid > .breakout {
+  grid-column: breakout;
 }

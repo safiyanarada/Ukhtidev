@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -21,6 +22,7 @@ export default {
       fontFamily: {
         sans: ['Geist', 'sans-serif'],
         inter: ['Inter', 'sans-serif'],
+        playfair: ['Playfair Display', 'serif'],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -29,11 +31,11 @@ export default {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         primary: {
-          DEFAULT: "#4ADE80",
+          DEFAULT: "#9b87f5", // Purple
           foreground: "hsl(var(--primary-foreground))",
         },
         secondary: {
-          DEFAULT: "hsl(var(--secondary))",
+          DEFAULT: "#D946EF", // Magenta Pink
           foreground: "hsl(var(--secondary-foreground))",
         },
         destructive: {
@@ -45,7 +47,7 @@ export default {
           foreground: "hsl(var(--muted-foreground))",
         },
         accent: {
-          DEFAULT: "hsl(var(--accent))",
+          DEFAULT: "#33C3F0", // Sky Blue
           foreground: "hsl(var(--accent-foreground))",
         },
         popover: {
@@ -61,10 +63,33 @@ export default {
         marquee: {
           '0%': { transform: 'translateX(0%)' },
           '100%': { transform: 'translateX(-100%)' }
+        },
+        "shimmer": {
+          from: {
+            "backgroundPosition": "0 0"
+          },
+          to: {
+            "backgroundPosition": "-200% 0"
+          }
+        },
+        "glow": {
+          "0%, 100%": { 
+            boxShadow: "0 0 15px 5px rgba(155, 135, 245, 0.5), 0 0 20px 10px rgba(217, 70, 239, 0.3)" 
+          },
+          "50%": { 
+            boxShadow: "0 0 25px 10px rgba(155, 135, 245, 0.7), 0 0 30px 15px rgba(217, 70, 239, 0.5)" 
+          }
+        },
+        "float": {
+          "0%, 100%": { transform: "translateY(0px)" },
+          "50%": { transform: "translateY(-20px)" }
         }
       },
       animation: {
-        marquee: 'marquee 40s linear infinite'
+        marquee: 'marquee 40s linear infinite',
+        "shimmer": "shimmer 2s linear infinite",
+        "glow": "glow 3s ease-in-out infinite",
+        "float": "float 6s ease-in-out infinite"
       }
     },
   },
