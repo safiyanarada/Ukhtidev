@@ -20,7 +20,7 @@ export const AnimatedBackground = () => {
     resizeCanvas();
     window.addEventListener("resize", resizeCanvas);
     
-    // Color palette for the aurora
+    // Color palette for the aurora - more feminine but professional
     const colors = [
       { r: 182, g: 139, b: 245 }, // lighter purple
       { r: 255, g: 110, b: 199 }, // pink
@@ -29,12 +29,12 @@ export const AnimatedBackground = () => {
       { r: 255, g: 182, b: 232 }  // light pink
     ];
     
-    // Create gradient points
-    const points = Array.from({ length: 7 }, () => ({
+    // Create more gradient points for better coverage
+    const points = Array.from({ length: 10 }, () => ({
       x: Math.random() * canvas.width,
       y: Math.random() * canvas.height,
-      vx: (Math.random() - 0.5) * 0.3,
-      vy: (Math.random() - 0.5) * 0.3,
+      vx: (Math.random() - 0.5) * 0.2,
+      vy: (Math.random() - 0.5) * 0.2,
       color: colors[Math.floor(Math.random() * colors.length)]
     }));
     
@@ -42,8 +42,8 @@ export const AnimatedBackground = () => {
     let animationId: number;
     
     const animate = () => {
-      // Clear canvas with slight fade effect
-      ctx.fillStyle = "rgba(22, 19, 32, 0.02)";
+      // Clear canvas with very slight fade effect for trails
+      ctx.fillStyle = "rgba(22, 19, 32, 0.01)"; // Reduced opacity for more persistent effect
       ctx.fillRect(0, 0, canvas.width, canvas.height);
       
       // Draw gradient blobs
@@ -56,15 +56,15 @@ export const AnimatedBackground = () => {
         if (point.x < 0 || point.x > canvas.width) point.vx *= -1;
         if (point.y < 0 || point.y > canvas.height) point.vy *= -1;
         
-        // Draw radial gradient
-        const radius = Math.min(canvas.width, canvas.height) * 0.4;
+        // Draw radial gradient with larger radius
+        const radius = Math.min(canvas.width, canvas.height) * 0.5;
         const gradient = ctx.createRadialGradient(
           point.x, point.y, 0,
           point.x, point.y, radius
         );
         
         const { r, g, b } = point.color;
-        gradient.addColorStop(0, `rgba(${r}, ${g}, ${b}, 0.15)`);
+        gradient.addColorStop(0, `rgba(${r}, ${g}, ${b}, 0.2)`); // Increased opacity
         gradient.addColorStop(1, "rgba(0, 0, 0, 0)");
         
         ctx.fillStyle = gradient;
@@ -86,7 +86,7 @@ export const AnimatedBackground = () => {
     <canvas
       ref={canvasRef}
       className="fixed inset-0 w-full h-full -z-10"
-      style={{ opacity: 0.8 }}
+      style={{ opacity: 0.9 }} // Increased opacity for better visibility
     />
   );
 };

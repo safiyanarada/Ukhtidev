@@ -2,7 +2,9 @@
 import React, { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { Brain, Code, Database, Globe, Layers, Palette, Settings, Zap } from "lucide-react";
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
+import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
+import useEmblaCarousel from 'embla-carousel-react';
+import Autoplay from 'embla-carousel-autoplay';
 
 export const SkillsSection = () => {
   const skills = [
@@ -53,7 +55,16 @@ export const SkillsSection = () => {
     show: { y: 0, opacity: 1 }
   };
   
-  const carouselRef = useRef<HTMLDivElement | null>(null);
+  // Setup autoplay carousel with custom options
+  const [emblaRef] = useEmblaCarousel(
+    { 
+      loop: true,
+      dragFree: true,
+      containScroll: "trimSnaps",
+      align: "start"
+    }, 
+    [Autoplay({ delay: 3000, stopOnInteraction: false })]
+  );
 
   return (
     <section className="py-24 relative bg-muted" id="skills">
@@ -121,23 +132,14 @@ export const SkillsSection = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.7, delay: 0.2 }}
           className="mt-16"
-          ref={carouselRef}
         >
           <h3 className="text-xl font-medium mb-8 text-center text-gradient font-orbitron">Technologies maîtrisées</h3>
           
           <div className="w-full overflow-hidden px-4 py-8">
-            <Carousel 
-              opts={{
-                align: "start",
-                loop: true,
-                dragFree: true,
-                containScroll: "trimSnaps"
-              }}
-              className="w-full max-w-5xl mx-auto"
-            >
-              <CarouselContent>
+            <div className="w-full max-w-5xl mx-auto" ref={emblaRef}>
+              <div className="flex">
                 {techSkills.map((tech, idx) => (
-                  <CarouselItem key={idx} className="sm:basis-1/2 md:basis-1/3 lg:basis-1/4 pl-4">
+                  <div key={idx} className="flex-shrink-0 w-1/4 pl-4">
                     <motion.div 
                       whileHover={{ y: -5 }}
                       className="glass glass-hover rounded-lg p-4 text-center h-full"
@@ -147,14 +149,10 @@ export const SkillsSection = () => {
                       </div>
                       <div className="text-sm">{tech.name}</div>
                     </motion.div>
-                  </CarouselItem>
+                  </div>
                 ))}
-              </CarouselContent>
-              <div className="flex justify-center mt-4">
-                <CarouselPrevious className="mr-2 static translate-y-0" />
-                <CarouselNext className="ml-2 static translate-y-0" />
               </div>
-            </Carousel>
+            </div>
           </div>
         </motion.div>
       </div>
