@@ -38,7 +38,7 @@ export const AboutSection = () => {
           transition={{ duration: 0.5 }}
           className="mb-16 text-center"
         >
-          <h2 className="text-gradient inline-block text-3xl md:text-4xl font-playfair font-medium mb-4">À propos de moi</h2>
+          <h2 className="text-gradient inline-block text-3xl md:text-4xl font-orbitron font-medium mb-4">À propos de moi</h2>
           <div className="w-20 h-1 bg-gradient-to-r from-primary to-secondary mx-auto"></div>
         </motion.div>
 
@@ -75,11 +75,11 @@ export const AboutSection = () => {
             }}
           >
             <h3 className="text-2xl font-medium mb-6">
-              <span className="text-white">Sophie Durant,</span>{" "}
-              <span className="text-gradient">Développeuse IA & Web</span>
+              <span className="text-white font-rajdhani">Sophie Durant,</span>{" "}
+              <span className="text-gradient font-orbitron">Développeuse IA & Web</span>
             </h3>
 
-            <div className="space-y-4 text-white/80 mb-8">
+            <div className="space-y-4 text-white/90 mb-8 font-rajdhani">
               <p>
                 Passionnée par la technologie depuis mon plus jeune âge, j'ai développé une expertise à l'intersection du développement web et de l'intelligence artificielle. Mon approche combine la créativité et la rigueur technique pour construire des solutions innovantes.
               </p>
@@ -100,7 +100,7 @@ export const AboutSection = () => {
                   className="flex items-center space-x-2"
                 >
                   <CheckCircle className="w-5 h-5 text-primary" />
-                  <span>{item}</span>
+                  <span className="font-rajdhani">{item}</span>
                 </motion.div>
               ))}
             </div>

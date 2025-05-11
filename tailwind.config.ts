@@ -23,6 +23,8 @@ export default {
         sans: ['Geist', 'sans-serif'],
         inter: ['Inter', 'sans-serif'],
         playfair: ['Playfair Display', 'serif'],
+        orbitron: ['Orbitron', 'sans-serif'],
+        rajdhani: ['Rajdhani', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -83,13 +85,18 @@ export default {
         "float": {
           "0%, 100%": { transform: "translateY(0px)" },
           "50%": { transform: "translateY(-20px)" }
+        },
+        "pulse-light": {
+          "0%, 100%": { opacity: "1" },
+          "50%": { opacity: "0.7" }
         }
       },
       animation: {
         marquee: 'marquee 40s linear infinite',
         "shimmer": "shimmer 2s linear infinite",
         "glow": "glow 3s ease-in-out infinite",
-        "float": "float 6s ease-in-out infinite"
+        "float": "float 6s ease-in-out infinite",
+        "pulse-light": "pulse-light 3s ease-in-out infinite",
       }
     },
   },

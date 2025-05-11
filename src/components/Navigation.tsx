@@ -36,7 +36,7 @@ const Navigation = () => {
   return (
     <header 
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-        scrolled ? "bg-black/80 backdrop-blur-lg border-b border-white/10" : "bg-transparent"
+        scrolled ? "bg-black/50 backdrop-blur-lg border-b border-white/10" : "bg-transparent"
       }`}
     >
       <div className="container mx-auto px-4">
@@ -47,7 +47,7 @@ const Navigation = () => {
             transition={{ duration: 0.5 }}
             className="text-xl font-semibold"
           >
-            <a href="#" className="text-gradient font-playfair">Sophie</a>
+            <a href="#" className="text-gradient font-orbitron tracking-wider">Sophie</a>
           </motion.div>
 
           {/* Desktop Navigation */}
@@ -61,7 +61,7 @@ const Navigation = () => {
               >
                 <a
                   href={item.href}
-                  className="text-sm font-medium text-white/70 hover:text-white transition-colors relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-[-5px] after:left-0 after:bg-gradient-to-r after:from-primary after:to-secondary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left"
+                  className="text-sm font-medium text-white/80 hover:text-white transition-colors relative font-rajdhani tracking-wide after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-[-5px] after:left-0 after:bg-gradient-to-r after:from-primary after:to-secondary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left"
                 >
                   {item.name}
                 </a>
@@ -72,7 +72,7 @@ const Navigation = () => {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
             >
-              <Button className="button-gradient">
+              <Button className="button-gradient font-rajdhani">
                 CV
               </Button>
             </motion.div>
@@ -108,7 +108,7 @@ const Navigation = () => {
                   <a
                     key={item.name}
                     href={item.href}
-                    className="py-2 text-white/80 hover:text-white transition-colors"
+                    className="py-2 text-white/80 hover:text-white transition-colors font-rajdhani tracking-wide"
                     onClick={() => setIsOpen(false)}
                   >
                     {item.name}
