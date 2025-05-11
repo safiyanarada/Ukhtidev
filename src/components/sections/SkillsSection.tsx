@@ -1,7 +1,8 @@
 
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { Brain, Code, Database, Globe, Layers, Palette, Settings, Zap } from "lucide-react";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 
 export const SkillsSection = () => {
   const skills = [
@@ -25,6 +26,18 @@ export const SkillsSection = () => {
     }
   ];
 
+  const techSkills = [
+    { icon: <Code className="w-6 h-6" />, name: "JavaScript" },
+    { icon: <Layers className="w-6 h-6" />, name: "React" },
+    { icon: <Globe className="w-6 h-6" />, name: "TensorFlow" },
+    { icon: <Database className="w-6 h-6" />, name: "PyTorch" },
+    { icon: <Settings className="w-6 h-6" />, name: "Node.js" },
+    { icon: <Zap className="w-6 h-6" />, name: "Next.js" },
+    { icon: <Brain className="w-6 h-6" />, name: "OpenAI" },
+    { icon: <Code className="w-6 h-6" />, name: "TypeScript" },
+    { icon: <Database className="w-6 h-6" />, name: "MongoDB" }
+  ];
+
   const container = {
     hidden: { opacity: 0 },
     show: {
@@ -39,6 +52,8 @@ export const SkillsSection = () => {
     hidden: { y: 20, opacity: 0 },
     show: { y: 0, opacity: 1 }
   };
+  
+  const carouselRef = useRef<HTMLDivElement | null>(null);
 
   return (
     <section className="py-24 relative bg-muted" id="skills">
@@ -105,27 +120,42 @@ export const SkillsSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7, delay: 0.2 }}
-          className="mt-16 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-6"
+          className="mt-16"
+          ref={carouselRef}
         >
-          {[
-            { icon: <Code className="w-6 h-6" />, name: "JavaScript" },
-            { icon: <Layers className="w-6 h-6" />, name: "React" },
-            { icon: <Globe className="w-6 h-6" />, name: "TensorFlow" },
-            { icon: <Database className="w-6 h-6" />, name: "PyTorch" },
-            { icon: <Settings className="w-6 h-6" />, name: "Node.js" },
-            { icon: <Zap className="w-6 h-6" />, name: "Next.js" }
-          ].map((tech, idx) => (
-            <motion.div 
-              key={idx}
-              whileHover={{ y: -5 }}
-              className="glass glass-hover rounded-lg p-4 text-center"
+          <h3 className="text-xl font-medium mb-8 text-center text-gradient font-orbitron">Technologies maîtrisées</h3>
+          
+          <div className="w-full overflow-hidden px-4 py-8">
+            <Carousel 
+              opts={{
+                align: "start",
+                loop: true,
+                dragFree: true,
+                containScroll: "trimSnaps"
+              }}
+              className="w-full max-w-5xl mx-auto"
             >
-              <div className="text-gradient mb-2 flex justify-center">
-                {tech.icon}
+              <CarouselContent>
+                {techSkills.map((tech, idx) => (
+                  <CarouselItem key={idx} className="sm:basis-1/2 md:basis-1/3 lg:basis-1/4 pl-4">
+                    <motion.div 
+                      whileHover={{ y: -5 }}
+                      className="glass glass-hover rounded-lg p-4 text-center h-full"
+                    >
+                      <div className="text-gradient mb-2 flex justify-center">
+                        {tech.icon}
+                      </div>
+                      <div className="text-sm">{tech.name}</div>
+                    </motion.div>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <div className="flex justify-center mt-4">
+                <CarouselPrevious className="mr-2 static translate-y-0" />
+                <CarouselNext className="ml-2 static translate-y-0" />
               </div>
-              <div className="text-sm">{tech.name}</div>
-            </motion.div>
-          ))}
+            </Carousel>
+          </div>
         </motion.div>
       </div>
     </section>

@@ -157,3 +157,25 @@
 .floating-text {
   animation: float 6s ease-in-out infinite;
 }
+
+@keyframes aurora-flow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.aurora-bg {
+  background: linear-gradient(270deg, #b68bf5, #FF6EC7, #33C3F0, #b68bf5);
+  background-size: 300% 300%;
+  animation: aurora-flow 30s ease infinite;
+  filter: blur(100px) saturate(150%);
+  opacity: 0.4;
+  mix-blend-mode: screen;
+}
+
