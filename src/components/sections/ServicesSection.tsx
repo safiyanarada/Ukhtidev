@@ -57,7 +57,9 @@ export const ServicesSection = () => {
   };
 
   return (
-    <section className="py-24 relative bg-white/10" id="services">
+    <section className="py-24 relative" id="services">
+      <div className="absolute inset-0 bg-black/50 md:bg-transparent z-0"></div>
+
       {/* Background Elements */}
       <div className="absolute inset-0 -z-10">
         <div className="absolute bottom-0 right-0 w-96 h-96 bg-primary/10 rounded-full filter blur-[100px]" />
@@ -76,7 +78,7 @@ export const ServicesSection = () => {
             <h2 className="text-white text-3xl md:text-4xl font-orbitron font-medium mb-4 uppercase drop-shadow-[0_0_8px_rgba(249,168,212,0.5)]">
               Mes services
             </h2>
-            <p className="mt-6 text-white/90 max-w-2xl mx-auto leading-relaxed">
+            <p className="mt-6 text-white max-w-2xl mx-auto leading-relaxed">
             Des prestations sur mesure pour répondre à vos besoins en développement, intelligence artificielle et design.
           </p>
           </div>
@@ -99,7 +101,7 @@ export const ServicesSection = () => {
                   <CardTitle className="text-xl text-white">{service.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <CardDescription className="text-white/90 font-rajdhani leading-relaxed">
+                  <CardDescription className="text-white font-rajdhani leading-relaxed">
                     {service.description}
                   </CardDescription>
                 </CardContent>

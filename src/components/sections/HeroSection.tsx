@@ -13,6 +13,8 @@ export const HeroSection = () => {
       className="min-h-screen flex items-center relative pt-16 pb-20 overflow-hidden"
       id="home"
     >
+      <div className="absolute inset-0 bg-black/50 md:bg-transparent z-0"></div>
+
       {/* Background Elements */}
       <div className="absolute inset-0 -z-10">
         {/* Blobs fusionnés et centrés sur mobile */}
@@ -55,7 +57,7 @@ export const HeroSection = () => {
               </motion.h1>
             </div>
             
-            <p className="text-xl md:text-2xl text-white/90 mb-10 max-w-2xl mx-auto lg:mx-0 font-rajdhani leading-relaxed">
+            <p className="text-xl md:text-2xl text-white mb-10 max-w-2xl mx-auto lg:mx-0 font-rajdhani leading-relaxed">
               Spécialiste en développement web et intelligence artificielle, 
               je crée des expériences numériques <span className="text-white font-medium">innovantes</span> et <span className="text-white font-medium">élégantes</span>.
             </p>

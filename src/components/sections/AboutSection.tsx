@@ -16,7 +16,7 @@ export const AboutSection = () => {
   };
 
   const highlights = [
-    "6+ ans d'expérience en développement web",
+    "1 an d'expérience en développement web",
     "Spécialiste en intelligence artificielle",
     "Passionnée par l'UI/UX design",
     "Formation continue en nouvelles technologies"
@@ -24,6 +24,7 @@ export const AboutSection = () => {
 
   return (
     <section className="py-24 relative overflow-hidden" id="about">
+      <div className="absolute inset-0 bg-black/50 md:bg-transparent z-0"></div>
       {/* Background Elements */}
       <div className="absolute inset-0 -z-10">
         <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-primary/10 rounded-full filter blur-[100px]" />
@@ -77,12 +78,12 @@ export const AboutSection = () => {
               visible: { opacity: 1, y: 0, transition: { duration: 0.7 } }
             }}
           >
-            <h3 className="text-2xl font-medium mb-6">
-              <span className="text-white font-orbitron">Ukhtidev,</span>{" "}
-              <span className="text-white font-orbitron">Développeuse IA & Web</span>
+            <h3 className="text-2xl font-medium mb-6 text-white">
+              <span className="font-orbitron">Ukhtidev,</span>{" "}
+              <span className="font-orbitron">Développeuse IA & Web</span>
             </h3>
 
-            <div className="space-y-4 text-white/90 mb-8 font-rajdhani leading-relaxed">
+            <div className="space-y-4 text-white mb-8 font-rajdhani leading-relaxed">
               <p>
                 Passionnée par la technologie depuis mon plus jeune âge, j'ai développé une expertise à l'intersection du développement web et de l'intelligence artificielle. Mon approche combine la créativité et la rigueur technique pour construire des solutions <span className="text-white font-medium">innovantes</span>.
               </p>
@@ -103,7 +104,7 @@ export const AboutSection = () => {
                   className="flex items-center space-x-2"
                 >
                   <CheckCircle className="w-5 h-5 text-accent" />
-                  <span className="font-rajdhani text-white/90">{item}</span>
+                  <span className="font-rajdhani text-white">{item}</span>
                 </motion.div>
               ))}
             </div>

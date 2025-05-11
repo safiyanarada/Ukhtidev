@@ -54,7 +54,8 @@ export const SkillsSection = () => {
   );
 
   return (
-    <section className="py-24 relative bg-white/10" id="skills">
+    <section className="py-24 relative" id="skills">
+      <div className="absolute inset-0 bg-black/50 md:bg-transparent z-0"></div>
       {/* Background Elements */}
       <div className="absolute inset-0 -z-10">
         <div className="absolute top-0 right-1/4 w-96 h-96 bg-primary/10 rounded-full filter blur-[100px]" />

@@ -65,6 +65,8 @@ export const ProjectsSection = () => {
 
   return (
     <section className="py-24 relative" id="projects">
+      <div className="absolute inset-0 bg-black/50 md:bg-transparent z-0"></div>
+
       {/* Background Elements */}
       <div className="absolute inset-0 -z-10">
         <div className="absolute top-0 left-0 w-96 h-96 bg-primary/10 rounded-full filter blur-[100px]" />
@@ -82,7 +84,7 @@ export const ProjectsSection = () => {
             <h2 className="text-white text-3xl md:text-4xl font-orbitron font-medium mb-4 uppercase">
               Mes projets
             </h2>
-            <p className="mt-6 text-white/90 max-w-2xl mx-auto leading-relaxed">
+            <p className="mt-6 text-white max-w-2xl mx-auto leading-relaxed">
             Découvrez une sélection de mes dernières réalisations dans le domaine du web et de l'intelligence artificielle.
           </p>
           </div>
@@ -141,7 +143,7 @@ export const ProjectsSection = () => {
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-6">
                           <div>
-                            <h3 className="text-xl font-medium mb-2">{project.title}</h3>
+                            <h3 className="text-xl font-medium mb-2 text-white">{project.title}</h3>
                             <div className="flex gap-2 flex-wrap">
                               {project.technologies.map((tech, idx) => (
                                 <span 
@@ -159,8 +161,8 @@ export const ProjectsSection = () => {
                   </HoverCardTrigger>
                   <HoverCardContent className="glass border-white/10 w-80">
                     <div className="space-y-4">
-                      <h4 className="text-lg font-medium">{project.title}</h4>
-                      <p className="text-sm text-white/90">{project.description}</p>
+                      <h4 className="text-lg font-medium text-white">{project.title}</h4>
+                      <p className="text-sm text-white">{project.description}</p>
                       <div className="flex justify-between">
                         <Button variant="outline" size="sm" className="flex items-center gap-2 border-white/10 glow-hover">
                           <Github className="w-4 h-4" />

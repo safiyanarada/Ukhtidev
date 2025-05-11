@@ -33,6 +33,7 @@ export const ContactSection = () => {
 
   return (
     <section className="py-24 relative" id="contact">
+      <div className="absolute inset-0 bg-black/50 md:bg-transparent z-0"></div>
       {/* Background Elements */}
       <div className="absolute inset-0 -z-10">
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-primary/10 rounded-full filter blur-[100px]" />
@@ -58,7 +59,7 @@ export const ContactSection = () => {
                 }}>{l}</span>
               ))}
             </h2>
-            <p className="mt-6 text-white/90 max-w-2xl mx-auto leading-relaxed">
+            <p className="mt-6 text-white max-w-2xl mx-auto leading-relaxed">
             Une idée de projet ? Une question ? N'hésitez pas à me contacter.
           </p>
           </div>
@@ -72,7 +73,7 @@ export const ContactSection = () => {
             transition={{ duration: 0.7 }}
           >
             <h3 className="text-2xl font-medium mb-6">Discutons de votre projet</h3>
-            <p className="text-white/90 mb-8 font-rajdhani leading-relaxed">
+            <p className="text-white mb-8 font-rajdhani leading-relaxed">
               Que vous ayez besoin d'un site web, d'une solution d'IA ou simplement d'un conseil,
               je suis là pour vous aider à concrétiser votre vision.
             </p>
@@ -83,7 +84,7 @@ export const ContactSection = () => {
                   <Mail className="w-5 h-5" />
                 </div>
                 <div>
-                  <h4 className="text-sm font-medium text-white/80">Email</h4>
+                  <h4 className="text-sm font-medium text-white">Email</h4>
                   <p className="font-rajdhani">contact.ukhtidev@gmail.com</p>
                 </div>
               </div>
@@ -93,14 +94,14 @@ export const ContactSection = () => {
                   <MapPin className="w-5 h-5" />
                 </div>
                 <div>
-                  <h4 className="text-sm font-medium text-white/80">Adresse</h4>
+                  <h4 className="text-sm font-medium text-white">Adresse</h4>
                   <p className="font-rajdhani">Paris, France</p>
                 </div>
               </div>
             </div>
 
             <div className="mt-12">
-              <h4 className="text-lg font-medium mb-4">Suivez-moi</h4>
+              <h4 className="text-lg font-medium mb-4 text-white">Suivez-moi</h4>
               <div className="flex space-x-4">
                 <motion.a 
                   whileHover={{ y: -5 }}
