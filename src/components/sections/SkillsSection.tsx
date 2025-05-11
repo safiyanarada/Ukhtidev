@@ -1,43 +1,30 @@
-
-import React, { useEffect, useRef } from "react";
+import React, { useCallback } from "react";
 import { motion } from "framer-motion";
 import { Brain, Code, Database, Globe, Layers, Palette, Settings, Zap } from "lucide-react";
-import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 import useEmblaCarousel from 'embla-carousel-react';
 import Autoplay from 'embla-carousel-autoplay';
 
 export const SkillsSection = () => {
   const skills = [
     {
-      category: "Intelligence Artificielle",
-      items: [
-        { name: "Machine Learning", icon: <Brain className="w-5 h-5" />, level: 85 },
-        { name: "NLP & Chatbots", icon: <Brain className="w-5 h-5" />, level: 90 },
-        { name: "Computer Vision", icon: <Brain className="w-5 h-5" />, level: 75 },
-        { name: "Data Science", icon: <Database className="w-5 h-5" />, level: 80 },
-      ]
-    },
-    {
-      category: "Développement Web",
+      category: "Développement Web et IA",
       items: [
         { name: "HTML/CSS/JS", icon: <Code className="w-5 h-5" />, level: 95 },
         { name: "React", icon: <Code className="w-5 h-5" />, level: 90 },
         { name: "Node.js", icon: <Server className="w-5 h-5" />, level: 85 },
         { name: "UX/UI Design", icon: <Palette className="w-5 h-5" />, level: 80 },
+        { name: "NLP & Chatbots", icon: <Brain className="w-5 h-5" />, level: 90 },
       ]
     }
   ];
 
   const techSkills = [
     { icon: <Code className="w-6 h-6" />, name: "JavaScript" },
-    { icon: <Layers className="w-6 h-6" />, name: "React" },
-    { icon: <Globe className="w-6 h-6" />, name: "TensorFlow" },
-    { icon: <Database className="w-6 h-6" />, name: "PyTorch" },
     { icon: <Settings className="w-6 h-6" />, name: "Node.js" },
-    { icon: <Zap className="w-6 h-6" />, name: "Next.js" },
-    { icon: <Brain className="w-6 h-6" />, name: "OpenAI" },
     { icon: <Code className="w-6 h-6" />, name: "TypeScript" },
-    { icon: <Database className="w-6 h-6" />, name: "MongoDB" }
+    { icon: <Layers className="w-6 h-6" />, name: "React" },
+    { icon: <Zap className="w-6 h-6" />, name: "Next.js" },
+    { icon: <Code className="w-6 h-6" />, name: "HTML/CSS" },
   ];
 
   const container = {
@@ -55,22 +42,23 @@ export const SkillsSection = () => {
     show: { y: 0, opacity: 1 }
   };
   
-  // Setup autoplay carousel with custom options
+  // Configuration du carousel
   const [emblaRef] = useEmblaCarousel(
     { 
       loop: true,
-      dragFree: true,
-      containScroll: "trimSnaps",
-      align: "start"
-    }, 
-    [Autoplay({ delay: 3000, stopOnInteraction: false })]
+      dragFree: false,
+      align: "start",
+      slidesToScroll: 1
+    },
+    [Autoplay({ delay: 5000, stopOnInteraction: false })]
   );
 
   return (
-    <section className="py-24 relative bg-muted" id="skills">
+    <section className="py-24 relative bg-white/10" id="skills">
       {/* Background Elements */}
       <div className="absolute inset-0 -z-10">
         <div className="absolute top-0 right-1/4 w-96 h-96 bg-primary/10 rounded-full filter blur-[100px]" />
+        <div className="absolute bottom-1/4 left-1/3 w-64 h-64 bg-accent/10 rounded-full filter blur-[80px]" />
       </div>
 
       <div className="container mx-auto px-4">
@@ -81,15 +69,18 @@ export const SkillsSection = () => {
           transition={{ duration: 0.5 }}
           className="mb-16 text-center"
         >
-          <h2 className="text-gradient inline-block text-3xl md:text-4xl font-orbitron font-medium mb-4 animate-neon-pulse">Mes compétences</h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-primary to-secondary mx-auto"></div>
-          <p className="mt-4 text-white/70 max-w-2xl mx-auto">
-            Une combinaison unique de compétences techniques et créatives pour développer 
-            des solutions innovantes.
-          </p>
+          <div className="flex flex-col items-center justify-center">
+            <h2 className="text-gray-900 drop-shadow-[0_0_8px_rgba(249,168,212,0.5)] text-3xl md:text-4xl font-orbitron font-medium mb-4 uppercase">
+              Mes compétences
+            </h2>
+            <p className="mt-6 text-gray-700 max-w-2xl mx-auto leading-relaxed">
+              Une combinaison unique de compétences techniques et créatives pour développer 
+              des solutions <span className="text-gray-900">innovantes</span> et <span className="text-gray-900">performantes</span>.
+            </p>
+          </div>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+        <div className="flex justify-center">
           {skills.map((skillGroup, index) => (
             <motion.div
               key={index}
@@ -97,18 +88,20 @@ export const SkillsSection = () => {
               whileInView="show"
               viewport={{ once: true }}
               variants={container}
-              className="glass rounded-xl p-8"
+              className="glass rounded-xl p-8 w-full max-w-4xl hover:shadow-md hover:shadow-accent/10 transition-all duration-300"
             >
-              <h3 className="text-xl font-medium mb-8 text-gradient">{skillGroup.category}</h3>
+              <h3 className="text-xl font-medium mb-8 text-gray-900 text-center">{skillGroup.category}</h3>
               <div className="space-y-8">
                 {skillGroup.items.map((skill, idx) => (
                   <motion.div key={idx} variants={item}>
                     <div className="flex justify-between mb-2">
                       <div className="flex items-center gap-2">
-                        {skill.icon}
-                        <span>{skill.name}</span>
+                        <div className="text-gray-900">
+                          {skill.icon}
+                        </div>
+                        <span className="text-pink-600">{skill.name}</span>
                       </div>
-                      <span className="text-primary">{skill.level}%</span>
+                      <span className="text-gray-900 font-medium">{skill.level}%</span>
                     </div>
                     <div className="h-2 bg-white/10 rounded-full overflow-hidden">
                       <motion.div
@@ -116,8 +109,10 @@ export const SkillsSection = () => {
                         whileInView={{ width: `${skill.level}%` }}
                         viewport={{ once: true }}
                         transition={{ duration: 1, delay: 0.2 }}
-                        className="h-full bg-gradient-to-r from-primary to-secondary"
-                      />
+                        className="h-full bg-pink-300 relative"
+                      >
+                        <div className="absolute -right-1 -top-1 w-3 h-3 rounded-full bg-pink-300 shadow-md"></div>
+                      </motion.div>
                     </div>
                   </motion.div>
                 ))}
@@ -133,21 +128,21 @@ export const SkillsSection = () => {
           transition={{ duration: 0.7, delay: 0.2 }}
           className="mt-16"
         >
-          <h3 className="text-xl font-medium mb-8 text-center text-gradient font-orbitron">Technologies maîtrisées</h3>
+          <h3 className="text-xl font-medium mb-8 text-center text-gray-900 font-orbitron uppercase">Technologies maîtrisées</h3>
           
-          <div className="w-full overflow-hidden px-4 py-8">
-            <div className="w-full max-w-5xl mx-auto" ref={emblaRef}>
-              <div className="flex">
+          <div className="w-full max-w-4xl mx-auto overflow-hidden px-0 py-8">
+            <div className="embla w-full" ref={emblaRef}>
+              <div className="embla__container flex">
                 {techSkills.map((tech, idx) => (
-                  <div key={idx} className="flex-shrink-0 w-1/4 pl-4">
+                  <div key={idx} className="embla__slide flex-[0_0_25%] min-w-0 pl-4">
                     <motion.div 
                       whileHover={{ y: -5 }}
-                      className="glass glass-hover rounded-lg p-4 text-center h-full"
+                      className="glass glass-hover rounded-lg p-4 text-center h-full transition-all duration-300 border-2 border-pink-300 drop-shadow-[0_0_12px_#f9a8d4]"
                     >
-                      <div className="text-gradient mb-2 flex justify-center">
+                      <div className="text-gray-900 mb-2 flex justify-center">
                         {tech.icon}
                       </div>
-                      <div className="text-sm">{tech.name}</div>
+                      <div className="text-sm text-gray-900 animated-underline inline-block">{tech.name}</div>
                     </motion.div>
                   </div>
                 ))}

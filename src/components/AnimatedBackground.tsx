@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef } from "react";
 
 export const AnimatedBackground = () => {
@@ -14,7 +13,7 @@ export const AnimatedBackground = () => {
     // Set canvas size to window size
     const resizeCanvas = () => {
       canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
+      canvas.height = window.innerHeight * 3; // Augmenté davantage pour être sûr de couvrir toute la page
     };
     
     resizeCanvas();
@@ -30,12 +29,13 @@ export const AnimatedBackground = () => {
     ];
     
     // Create more gradient points for better coverage
-    const points = Array.from({ length: 10 }, () => ({
+    const points = Array.from({ length: 20 }, () => ({
       x: Math.random() * canvas.width,
       y: Math.random() * canvas.height,
-      vx: (Math.random() - 0.5) * 0.2,
-      vy: (Math.random() - 0.5) * 0.2,
-      color: colors[Math.floor(Math.random() * colors.length)]
+      vx: (Math.random() - 0.5) * 0.3, // Légèrement plus rapide
+      vy: (Math.random() - 0.5) * 0.3, // Légèrement plus rapide
+      color: colors[Math.floor(Math.random() * colors.length)],
+      size: Math.random() * 0.5 + 0.5 // Facteur de taille aléatoire
     }));
     
     // Animation loop
@@ -57,14 +57,14 @@ export const AnimatedBackground = () => {
         if (point.y < 0 || point.y > canvas.height) point.vy *= -1;
         
         // Draw radial gradient with larger radius
-        const radius = Math.min(canvas.width, canvas.height) * 0.5;
+        const radius = Math.min(canvas.width, canvas.height) * 0.7 * point.size;
         const gradient = ctx.createRadialGradient(
           point.x, point.y, 0,
           point.x, point.y, radius
         );
         
         const { r, g, b } = point.color;
-        gradient.addColorStop(0, `rgba(${r}, ${g}, ${b}, 0.2)`); // Increased opacity
+        gradient.addColorStop(0, `rgba(${r}, ${g}, ${b}, 0.4)`); // Augmenté davantage l'opacité
         gradient.addColorStop(1, "rgba(0, 0, 0, 0)");
         
         ctx.fillStyle = gradient;
@@ -85,8 +85,8 @@ export const AnimatedBackground = () => {
   return (
     <canvas
       ref={canvasRef}
-      className="fixed inset-0 w-full h-full -z-10"
-      style={{ opacity: 0.9 }} // Increased opacity for better visibility
+      className="fixed top-0 left-0 w-full h-[300vh] -z-10" // Modifié pour être vraiment derrière tout mais avec une grande hauteur
+      style={{ opacity: 1 }} // Opacité à 100%
     />
   );
 };

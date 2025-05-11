@@ -1,4 +1,3 @@
-
 import React from "react";
 import { motion } from "framer-motion";
 import { CheckCircle } from "lucide-react";
@@ -27,7 +26,8 @@ export const AboutSection = () => {
     <section className="py-24 relative overflow-hidden" id="about">
       {/* Background Elements */}
       <div className="absolute inset-0 -z-10">
-        <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-accent/10 rounded-full filter blur-[100px]" />
+        <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-primary/10 rounded-full filter blur-[100px]" />
+        <div className="absolute top-1/3 right-1/4 w-64 h-64 bg-accent/10 rounded-full filter blur-[80px]" />
       </div>
 
       <div className="container mx-auto px-4">
@@ -38,8 +38,11 @@ export const AboutSection = () => {
           transition={{ duration: 0.5 }}
           className="mb-16 text-center"
         >
-          <h2 className="text-gradient inline-block text-3xl md:text-4xl font-orbitron font-medium mb-4 animate-neon-pulse">À propos de moi</h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-primary to-secondary mx-auto"></div>
+          <div className="flex flex-col items-center justify-center">
+            <h2 className="text-white text-3xl md:text-4xl font-orbitron font-medium mb-4 uppercase">
+              À propos de moi
+            </h2>
+          </div>
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -56,7 +59,7 @@ export const AboutSection = () => {
             <div className="aspect-square max-w-md mx-auto lg:mx-0">
               <div className="neon-border rounded-2xl p-3 glass">
                 <img 
-                  src="/lovable-uploads/79f2b901-8a4e-42a5-939f-fae0828e0aef.png" 
+                  src="/assets/apropos.png" 
                   alt="Portrait professionnelle" 
                   className="w-full h-full object-cover rounded-xl"
                 />
@@ -75,16 +78,16 @@ export const AboutSection = () => {
             }}
           >
             <h3 className="text-2xl font-medium mb-6">
-              <span className="text-white font-rajdhani">Sophie Durant,</span>{" "}
-              <span className="text-gradient font-orbitron">Développeuse IA & Web</span>
+              <span className="text-white font-orbitron">Ukhtidev,</span>{" "}
+              <span className="text-white font-orbitron">Développeuse IA & Web</span>
             </h3>
 
-            <div className="space-y-4 text-white/90 mb-8 font-rajdhani">
+            <div className="space-y-4 text-white/90 mb-8 font-rajdhani leading-relaxed">
               <p>
-                Passionnée par la technologie depuis mon plus jeune âge, j'ai développé une expertise à l'intersection du développement web et de l'intelligence artificielle. Mon approche combine la créativité et la rigueur technique pour construire des solutions innovantes.
+                Passionnée par la technologie depuis mon plus jeune âge, j'ai développé une expertise à l'intersection du développement web et de l'intelligence artificielle. Mon approche combine la créativité et la rigueur technique pour construire des solutions <span className="text-white font-medium">innovantes</span>.
               </p>
               <p>
-                Mon parcours m'a amenée à travailler sur des projets variés, des applications web complexes aux systèmes d'IA conversationnelle, en passant par des interfaces utilisateur avant-gardistes.
+                Mon parcours m'a amenée à travailler sur des projets variés, des applications web complexes aux systèmes d'IA conversationnelle, en passant par des interfaces utilisateur <span className="text-white font-medium">avant-gardistes</span>.
               </p>
             </div>
 
@@ -99,8 +102,8 @@ export const AboutSection = () => {
                   viewport={{ once: true }}
                   className="flex items-center space-x-2"
                 >
-                  <CheckCircle className="w-5 h-5 text-primary" />
-                  <span className="font-rajdhani">{item}</span>
+                  <CheckCircle className="w-5 h-5 text-accent" />
+                  <span className="font-rajdhani text-white/90">{item}</span>
                 </motion.div>
               ))}
             </div>

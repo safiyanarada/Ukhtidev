@@ -1,4 +1,3 @@
-
 import React from "react";
 import { motion } from "framer-motion";
 import { Code, Cpu, Globe, Layers, Palette, Wand } from "lucide-react";
@@ -58,10 +57,11 @@ export const ServicesSection = () => {
   };
 
   return (
-    <section className="py-24 relative bg-muted" id="services">
+    <section className="py-24 relative bg-white/10" id="services">
       {/* Background Elements */}
       <div className="absolute inset-0 -z-10">
         <div className="absolute bottom-0 right-0 w-96 h-96 bg-primary/10 rounded-full filter blur-[100px]" />
+        <div className="absolute top-1/4 left-1/3 w-64 h-64 bg-accent/10 rounded-full filter blur-[80px]" />
       </div>
 
       <div className="container mx-auto px-4">
@@ -72,11 +72,14 @@ export const ServicesSection = () => {
           transition={{ duration: 0.5 }}
           className="mb-16 text-center"
         >
-          <h2 className="text-gradient inline-block text-3xl md:text-4xl font-orbitron font-medium mb-4 animate-neon-pulse">Mes services</h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-primary to-secondary mx-auto"></div>
-          <p className="mt-4 text-white/70 max-w-2xl mx-auto">
+          <div className="flex flex-col items-center justify-center">
+            <h2 className="text-white text-3xl md:text-4xl font-orbitron font-medium mb-4 uppercase drop-shadow-[0_0_8px_rgba(249,168,212,0.5)]">
+              Mes services
+            </h2>
+            <p className="mt-6 text-white/90 max-w-2xl mx-auto leading-relaxed">
             Des prestations sur mesure pour répondre à vos besoins en développement, intelligence artificielle et design.
           </p>
+          </div>
         </motion.div>
 
         <motion.div 
@@ -90,13 +93,13 @@ export const ServicesSection = () => {
             <motion.div key={index} variants={itemVariants}>
               <Card className="glass glass-hover border-white/10 h-full">
                 <CardHeader className="pb-2">
-                  <div className="w-12 h-12 rounded-full flex items-center justify-center bg-gradient-to-r from-primary to-secondary mb-4">
+                  <div className="w-12 h-12 rounded-full flex items-center justify-center bg-gray-200 mb-4 text-pink-300">
                     {service.icon}
                   </div>
-                  <CardTitle className="text-xl">{service.title}</CardTitle>
+                  <CardTitle className="text-xl text-white">{service.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <CardDescription className="text-white/70">
+                  <CardDescription className="text-white/90 font-rajdhani leading-relaxed">
                     {service.description}
                   </CardDescription>
                 </CardContent>

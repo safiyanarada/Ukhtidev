@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ExternalLink, Github } from "lucide-react";
@@ -11,62 +10,32 @@ export const ProjectsSection = () => {
   const projects = [
     {
       id: 1,
-      title: "AI Image Generator",
+      title: "Spécial Thaï",
       category: "ai",
-      image: "/lovable-uploads/c32c6788-5e4a-4fee-afee-604b03113c7f.png",
-      description: "Générateur d'images basé sur l'IA utilisant GAN pour créer des œuvres d'art uniques.",
-      technologies: ["React", "TensorFlow.js", "WebGL"],
-      link: "#",
+      image: "/assets/projet1.png",
+      description: "Site vitrine pour un restaurant thaïlandais halal situé dans les Yvelines. Menu, réservation et ambiance authentique au rendez-vous.",
+      technologies: ["React", "Node.js", "TailwindCSS"],
+      link: "https://www.special-thai.fr/",
       github: "#"
     },
     {
       id: 2,
-      title: "E-commerce Platform",
-      category: "web",
-      image: "/lovable-uploads/86329743-ee49-4f2e-96f7-50508436273d.png",
-      description: "Plateforme e-commerce complète avec paiement en ligne et gestion des stocks.",
-      technologies: ["Next.js", "Stripe", "MongoDB"],
-      link: "#",
+      title: "Teranga Consult",
+      category: "ai",
+      image: "/assets/projet2.png",
+      description: "Plateforme de consulting digital : services, prise de rendez-vous et accompagnement à la transformation numérique.",
+      technologies: ["Next.js", "TypeScript", "MongoDB"],
+      link: "https://terangaconsult.netlify.app/",
       github: "#"
     },
     {
       id: 3,
-      title: "Chatbot Assistant",
+      title: "Hôtel Le Clos Des Papillons",
       category: "ai",
-      image: "/lovable-uploads/b6436838-5c1a-419a-9cdc-1f9867df073d.png",
-      description: "Assistant virtuel intelligent capable de comprendre le langage naturel.",
-      technologies: ["Python", "NLP", "React"],
-      link: "#",
-      github: "#"
-    },
-    {
-      id: 4,
-      title: "Portfolio Dashboard",
-      category: "web",
-      image: "/lovable-uploads/bb50362c-6879-4868-bbc9-c6e851fd8d7d.png",
-      description: "Tableau de bord analytique pour suivre les performances d'un portefeuille d'investissement.",
-      technologies: ["React", "D3.js", "Node.js"],
-      link: "#",
-      github: "#"
-    },
-    {
-      id: 5,
-      title: "Face Recognition App",
-      category: "ai",
-      image: "/lovable-uploads/7cc724d4-3e14-4e7c-9e7a-8d613fde54d0.png",
-      description: "Application mobile de reconnaissance faciale pour l'authentification sécurisée.",
-      technologies: ["TensorFlow", "React Native", "OpenCV"],
-      link: "#",
-      github: "#"
-    },
-    {
-      id: 6,
-      title: "Digital Art Gallery",
-      category: "web",
-      image: "/lovable-uploads/5830bd79-3511-41dc-af6c-8db32d91fc2c.png",
-      description: "Galerie d'art numérique interactive avec fonctionnalités sociales.",
-      technologies: ["Three.js", "WebGL", "Firebase"],
-      link: "#",
+      image: "/assets/projet3.png",
+      description: "Landing page élégante pour un hôtel de charme au Sénégal, avec présentation, galerie et formulaire de contact.",
+      technologies: ["Python", "FastAPI", "PostgreSQL"],
+      link: "https://leclosdespapillons.netlify.app/",
       github: "#"
     }
   ];
@@ -98,7 +67,7 @@ export const ProjectsSection = () => {
     <section className="py-24 relative" id="projects">
       {/* Background Elements */}
       <div className="absolute inset-0 -z-10">
-        <div className="absolute top-0 left-0 w-96 h-96 bg-secondary/10 rounded-full filter blur-[100px]" />
+        <div className="absolute top-0 left-0 w-96 h-96 bg-primary/10 rounded-full filter blur-[100px]" />
       </div>
 
       <div className="container mx-auto px-4">
@@ -109,11 +78,14 @@ export const ProjectsSection = () => {
           transition={{ duration: 0.5 }}
           className="mb-16 text-center"
         >
-          <h2 className="text-gradient inline-block text-3xl md:text-4xl font-playfair font-medium mb-4">Mes projets</h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-primary to-secondary mx-auto"></div>
-          <p className="mt-4 text-white/70 max-w-2xl mx-auto">
+          <div className="flex flex-col items-center justify-center">
+            <h2 className="text-white text-3xl md:text-4xl font-orbitron font-medium mb-4 uppercase">
+              Mes projets
+            </h2>
+            <p className="mt-6 text-white/90 max-w-2xl mx-auto leading-relaxed">
             Découvrez une sélection de mes dernières réalisations dans le domaine du web et de l'intelligence artificielle.
           </p>
+          </div>
         </motion.div>
 
         <div className="flex justify-center mb-12">
@@ -127,6 +99,7 @@ export const ProjectsSection = () => {
                     ? "bg-white/10 text-white"
                     : "text-white/60 hover:text-white"
                 }`}
+                aria-label={filter === "all" ? "Filtrer tous les projets" : filter === "ai" ? "Filtrer les projets IA" : "Filtrer les projets Web"}
               >
                 {filter === "all" ? "Tous" : filter === "ai" ? "IA" : "Web"}
               </button>
@@ -187,16 +160,21 @@ export const ProjectsSection = () => {
                   <HoverCardContent className="glass border-white/10 w-80">
                     <div className="space-y-4">
                       <h4 className="text-lg font-medium">{project.title}</h4>
-                      <p className="text-sm text-white/70">{project.description}</p>
+                      <p className="text-sm text-white/90">{project.description}</p>
                       <div className="flex justify-between">
-                        <Button variant="outline" size="sm" className="flex items-center gap-2 border-white/10">
+                        <Button variant="outline" size="sm" className="flex items-center gap-2 border-white/10 glow-hover">
                           <Github className="w-4 h-4" />
                           <span>Repo</span>
                         </Button>
-                        <Button className="button-gradient flex items-center gap-2">
+                        <a
+                          href={project.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="button-gradient flex items-center gap-2 px-4 py-2 rounded-md font-medium transition-colors"
+                        >
                           <ExternalLink className="w-4 h-4" />
                           <span>Demo</span>
-                        </Button>
+                        </a>
                       </div>
                     </div>
                   </HoverCardContent>
@@ -205,12 +183,6 @@ export const ProjectsSection = () => {
             ))}
           </AnimatePresence>
         </motion.div>
-
-        <div className="text-center mt-16">
-          <Button size="lg" variant="outline" className="border-white/10">
-            Voir tous les projets
-          </Button>
-        </div>
       </div>
     </section>
   );
