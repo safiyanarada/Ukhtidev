@@ -70,12 +70,12 @@ export const SkillsSection = () => {
           className="mb-16 text-center"
         >
           <div className="flex flex-col items-center justify-center">
-            <h2 className="text-gray-900 drop-shadow-[0_0_8px_rgba(249,168,212,0.5)] text-3xl md:text-4xl font-orbitron font-medium mb-4 uppercase">
+            <h2 className="text-white drop-shadow-[0_0_8px_rgba(249,168,212,0.5)] text-3xl md:text-4xl font-orbitron font-medium mb-4 uppercase">
               Mes compétences
             </h2>
-            <p className="mt-6 text-gray-700 max-w-2xl mx-auto leading-relaxed">
+            <p className="mt-6 text-white/90 max-w-2xl mx-auto leading-relaxed">
               Une combinaison unique de compétences techniques et créatives pour développer 
-              des solutions <span className="text-gray-900">innovantes</span> et <span className="text-gray-900">performantes</span>.
+              des solutions <span className="text-white font-bold">innovantes</span> et <span className="text-white font-bold">performantes</span>.
             </p>
           </div>
         </motion.div>
@@ -90,18 +90,18 @@ export const SkillsSection = () => {
               variants={container}
               className="glass rounded-xl p-8 w-full max-w-4xl hover:shadow-md hover:shadow-accent/10 transition-all duration-300"
             >
-              <h3 className="text-xl font-medium mb-8 text-gray-900 text-center">{skillGroup.category}</h3>
+              <h3 className="text-xl font-medium mb-8 text-white text-center">{skillGroup.category}</h3>
               <div className="space-y-8">
                 {skillGroup.items.map((skill, idx) => (
                   <motion.div key={idx} variants={item}>
                     <div className="flex justify-between mb-2">
                       <div className="flex items-center gap-2">
-                        <div className="text-gray-900">
+                        <div className="text-white">
                           {skill.icon}
                         </div>
-                        <span className="text-pink-600">{skill.name}</span>
+                        <span className="text-white font-bold">{skill.name}</span>
                       </div>
-                      <span className="text-gray-900 font-medium">{skill.level}%</span>
+                      <span className="text-white font-medium">{skill.level}%</span>
                     </div>
                     <div className="h-2 bg-white/10 rounded-full overflow-hidden">
                       <motion.div
@@ -128,7 +128,7 @@ export const SkillsSection = () => {
           transition={{ duration: 0.7, delay: 0.2 }}
           className="mt-16"
         >
-          <h3 className="text-xl font-medium mb-8 text-center text-gray-900 font-orbitron uppercase">Technologies maîtrisées</h3>
+          <h3 className="text-xl font-medium mb-8 text-center text-white font-orbitron uppercase">Technologies maîtrisées</h3>
           
           <div className="w-full max-w-4xl mx-auto overflow-hidden px-0 py-8">
             <div className="embla w-full" ref={emblaRef}>
@@ -139,10 +139,10 @@ export const SkillsSection = () => {
                       whileHover={{ y: -5 }}
                       className="glass glass-hover rounded-lg p-4 text-center h-full transition-all duration-300 border-2 border-pink-300 drop-shadow-[0_0_12px_#f9a8d4]"
                     >
-                      <div className="text-gray-900 mb-2 flex justify-center">
+                      <div className="text-white mb-2 flex justify-center">
                         {tech.icon}
                       </div>
-                      <div className="text-sm text-gray-900 animated-underline inline-block">{tech.name}</div>
+                      <div className="text-sm text-white font-bold animated-underline inline-block">{tech.name}</div>
                     </motion.div>
                   </div>
                 ))}
