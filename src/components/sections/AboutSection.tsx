@@ -38,7 +38,7 @@ export const AboutSection = () => {
           transition={{ duration: 0.5 }}
           className="mb-16 text-center"
         >
-          <h2 className="text-gradient inline-block text-3xl md:text-4xl font-orbitron font-medium mb-4">À propos de moi</h2>
+          <h2 className="text-gradient inline-block text-3xl md:text-4xl font-orbitron font-medium mb-4 animate-neon-pulse">À propos de moi</h2>
           <div className="w-20 h-1 bg-gradient-to-r from-primary to-secondary mx-auto"></div>
         </motion.div>
 

@@ -47,7 +47,7 @@ const Navigation = () => {
             transition={{ duration: 0.5 }}
             className="text-xl font-semibold"
           >
-            <a href="#" className="text-gradient font-orbitron tracking-wider">Sophie</a>
+            <a href="#" className="text-gradient font-orbitron tracking-wider animate-neon-pulse">Sophie</a>
           </motion.div>
 
           {/* Desktop Navigation */}
@@ -67,15 +67,6 @@ const Navigation = () => {
                 </a>
               </motion.div>
             ))}
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-            >
-              <Button className="button-gradient font-rajdhani">
-                CV
-              </Button>
-            </motion.div>
           </nav>
 
           {/* Mobile Navigation Trigger */}
@@ -114,9 +105,6 @@ const Navigation = () => {
                     {item.name}
                   </a>
                 ))}
-                <Button className="button-gradient w-full mt-4">
-                  CV
-                </Button>
               </nav>
             </div>
           </motion.div>

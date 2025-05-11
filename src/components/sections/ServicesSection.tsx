@@ -72,7 +72,7 @@ export const ServicesSection = () => {
           transition={{ duration: 0.5 }}
           className="mb-16 text-center"
         >
-          <h2 className="text-gradient inline-block text-3xl md:text-4xl font-playfair font-medium mb-4">Mes services</h2>
+          <h2 className="text-gradient inline-block text-3xl md:text-4xl font-orbitron font-medium mb-4 animate-neon-pulse">Mes services</h2>
           <div className="w-20 h-1 bg-gradient-to-r from-primary to-secondary mx-auto"></div>
           <p className="mt-4 text-white/70 max-w-2xl mx-auto">
             Des prestations sur mesure pour répondre à vos besoins en développement, intelligence artificielle et design.

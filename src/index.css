@@ -11,18 +11,18 @@
 
 @layer base {
   :root {
-    --background: 260 30% 10%;
+    --background: 260 30% 12%;
     --foreground: 0 0% 100%;
-    --card: 260 30% 12%;
+    --card: 260 30% 15%;
     --card-foreground: 0 0% 100%;
-    --popover: 260 30% 12%;
+    --popover: 260 30% 15%;
     --popover-foreground: 0 0% 100%;
-    --primary: 260 60% 65%;
+    --primary: 270 80% 75%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 300 95% 70%;
+    --secondary: 325 100% 75%;
     --secondary-foreground: 0 0% 100%;
-    --muted: 260 20% 20%;
-    --muted-foreground: 260 5% 75%;
+    --muted: 260 20% 22%;
+    --muted-foreground: 260 5% 80%;
     --accent: 195 100% 60%;
     --accent-foreground: 0 0% 100%;
     --destructive: 0 84% 60%;
@@ -57,7 +57,7 @@
   inset: 0;
   border-radius: inherit;
   padding: 1px;
-  background: linear-gradient(225deg, rgba(155, 135, 245, 0.5), rgba(217, 70, 239, 0.4));
+  background: linear-gradient(225deg, rgba(182, 139, 245, 0.5), rgba(255, 110, 199, 0.4));
   -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
   mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
   -webkit-mask-composite: xor;
@@ -90,13 +90,20 @@
   bottom: 0;
   border-radius: inherit;
   padding: 2px;
-  background: linear-gradient(45deg, #9b87f5, #D946EF, #33C3F0);
+  background: linear-gradient(45deg, #b68bf5, #FF6EC7, #33C3F0);
   -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
   mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
   pointer-events: none;
   opacity: 0.8;
+}
+
+.neon-text {
+  color: white;
+  text-shadow: 0 0 7px rgba(255, 110, 199, 0.8),
+               0 0 10px rgba(255, 110, 199, 0.5),
+               0 0 21px rgba(255, 110, 199, 0.3);
 }
 
 .shimmer {

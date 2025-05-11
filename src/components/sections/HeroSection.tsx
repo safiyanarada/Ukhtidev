@@ -44,7 +44,7 @@ export const HeroSection = () => {
               transition={{ delay: 0.6 }}
               className="inline-flex items-center px-4 py-2 rounded-full glass mb-6"
             >
-              <Sparkles className="h-4 w-4 mr-2 text-primary" />
+              <Sparkles className="h-4 w-4 mr-2 text-secondary" />
               <span className="text-sm font-medium">Développeuse Web & IA</span>
             </motion.p>
             
@@ -55,11 +55,11 @@ export const HeroSection = () => {
                 transition={{ delay: 0.8 }}
                 className="text-5xl md:text-7xl font-medium leading-tight mb-2 font-orbitron"
               >
-                <div className="text-white">
+                <div className="text-white neon-text">
                   <TextGenerateEffect words="Je code le futur" />
                 </div>
                 <motion.div 
-                  className="text-gradient inline-block relative"
+                  className="text-gradient inline-block relative animate-float"
                   animate={{ y: [0, -10, 0] }}
                   transition={{ 
                     repeat: Infinity, 
@@ -115,9 +115,9 @@ export const HeroSection = () => {
               <motion.div
                 animate={{
                   boxShadow: [
-                    "0 0 20px 5px rgba(155, 135, 245, 0.5), 0 0 30px 10px rgba(217, 70, 239, 0.3)",
-                    "0 0 30px 10px rgba(155, 135, 245, 0.7), 0 0 40px 15px rgba(217, 70, 239, 0.5)",
-                    "0 0 20px 5px rgba(155, 135, 245, 0.5), 0 0 30px 10px rgba(217, 70, 239, 0.3)"
+                    "0 0 20px 5px rgba(182, 139, 245, 0.5), 0 0 30px 10px rgba(255, 110, 199, 0.3)",
+                    "0 0 30px 10px rgba(182, 139, 245, 0.7), 0 0 40px 15px rgba(255, 110, 199, 0.5)",
+                    "0 0 20px 5px rgba(182, 139, 245, 0.5), 0 0 30px 10px rgba(255, 110, 199, 0.3)"
                   ],
                 }}
                 transition={{ 
@@ -144,24 +144,6 @@ export const HeroSection = () => {
                   />
                 </div>
               </div>
-              
-              {/* Orbiting Element */}
-              <motion.div 
-                animate={{ rotate: 360 }}
-                transition={{ 
-                  duration: 15, 
-                  ease: "linear", 
-                  repeat: Infinity 
-                }}
-                className="absolute inset-0 pointer-events-none"
-              >
-                <motion.div 
-                  className="absolute p-2 rounded-full glass"
-                  style={{ top: "10%", left: "85%"}}
-                >
-                  <Rocket className="w-5 h-5 text-accent" />
-                </motion.div>
-              </motion.div>
             </div>
           </motion.div>
         </div>

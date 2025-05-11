@@ -33,11 +33,11 @@ export default {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         primary: {
-          DEFAULT: "#9b87f5", // Purple
+          DEFAULT: "#b68bf5", // Lighter Purple - more feminine
           foreground: "hsl(var(--primary-foreground))",
         },
         secondary: {
-          DEFAULT: "#D946EF", // Magenta Pink
+          DEFAULT: "#FF6EC7", // Brighter Pink - more feminine
           foreground: "hsl(var(--secondary-foreground))",
         },
         destructive: {
@@ -76,10 +76,10 @@ export default {
         },
         "glow": {
           "0%, 100%": { 
-            boxShadow: "0 0 15px 5px rgba(155, 135, 245, 0.5), 0 0 20px 10px rgba(217, 70, 239, 0.3)" 
+            boxShadow: "0 0 15px 5px rgba(182, 139, 245, 0.5), 0 0 20px 10px rgba(255, 110, 199, 0.3)" 
           },
           "50%": { 
-            boxShadow: "0 0 25px 10px rgba(155, 135, 245, 0.7), 0 0 30px 15px rgba(217, 70, 239, 0.5)" 
+            boxShadow: "0 0 25px 10px rgba(182, 139, 245, 0.7), 0 0 30px 15px rgba(255, 110, 199, 0.5)" 
           }
         },
         "float": {
@@ -89,6 +89,14 @@ export default {
         "pulse-light": {
           "0%, 100%": { opacity: "1" },
           "50%": { opacity: "0.7" }
+        },
+        "neon-pulse": {
+          "0%, 100%": { 
+            textShadow: "0 0 7px rgba(255, 110, 199, 0.8), 0 0 10px rgba(255, 110, 199, 0.5), 0 0 21px rgba(255, 110, 199, 0.3)" 
+          },
+          "50%": { 
+            textShadow: "0 0 10px rgba(255, 110, 199, 1), 0 0 15px rgba(255, 110, 199, 0.8), 0 0 30px rgba(255, 110, 199, 0.5)" 
+          }
         }
       },
       animation: {
@@ -97,6 +105,7 @@ export default {
         "glow": "glow 3s ease-in-out infinite",
         "float": "float 6s ease-in-out infinite",
         "pulse-light": "pulse-light 3s ease-in-out infinite",
+        "neon-pulse": "neon-pulse 2s ease-in-out infinite",
       }
     },
   },
