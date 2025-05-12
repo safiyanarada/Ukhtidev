@@ -6,7 +6,7 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="w-full py-12 mt-20 relative overflow-hidden">
+    <footer className="w-full py-12 relative overflow-hidden">
       {/* Overlay noir semi-transparent */}
       <div className="absolute inset-0 bg-black/20 z-0 pointer-events-none"></div>
       
