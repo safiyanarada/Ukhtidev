@@ -32,14 +32,15 @@ export const ContactSection = () => {
   };
 
   return (
-    <section className="py-24 relative" id="contact">
-      <div className="absolute inset-0 bg-black/50 md:bg-transparent z-0"></div>
+    <section className="pt-24 pb-8 md:pb-24 relative" id="contact">
+      {/* Overlay noir semi-transparent */}
+      <div className="absolute inset-0 bg-black/50 z-0 pointer-events-none"></div>
       {/* Background Elements */}
       <div className="absolute inset-0 -z-10">
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-primary/10 rounded-full filter blur-[100px]" />
       </div>
-
-      <div className="container mx-auto px-4">
+      {/* Contenu texte */}
+      <div className="container mx-auto px-4 relative z-10">
         <motion.div 
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}

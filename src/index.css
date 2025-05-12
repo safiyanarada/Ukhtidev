@@ -12,7 +12,7 @@
 @layer base {
   :root {
     --background: 260 30% 12%;
-    --foreground: 0 0% 100%;
+    --foreground: 0 0% 100% !important;
     --card: 260 30% 15%;
     --card-foreground: 0 0% 100%;
     --popover: 260 30% 15%;
@@ -31,6 +31,13 @@
     --input: 260 20% 30%;
     --ring: 260 60% 65%;
     --radius: 0.75rem;
+  }
+
+  body, h1, h2, h3, h4, h5, h6, p, span, a, button, label, strong, em, b, i {
+    color: #fff !important;
+    -webkit-text-fill-color: #fff !important;
+    text-shadow: none !important;
+    opacity: 1 !important;
   }
 }
 
@@ -331,5 +338,13 @@
   filter: drop-shadow(0 0 8px #f9a8d4);
   animation: wave 2.5s ease-in-out infinite;
   display: inline-block;
+}
+
+.force-white-text, 
+.force-white-text * {
+  color: #fff !important;
+  text-shadow: none !important;
+  opacity: 1 !important;
+  -webkit-text-fill-color: #fff !important;
 }
 

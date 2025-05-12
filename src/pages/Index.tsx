@@ -18,7 +18,28 @@ const Index = () => {
       setShowTop(window.scrollY > 300);
     };
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+
+    // Force la couleur blanche en inline sur tous les éléments textuels
+    const forceWhite = () => {
+      const elements = document.querySelectorAll(
+        'body, h1, h2, h3, h4, h5, h6, p, span, a, button, label, strong, em, b, i'
+      );
+      elements.forEach(el => {
+        const htmlEl = el as HTMLElement;
+        htmlEl.style.color = '#fff';
+        htmlEl.style.textShadow = 'none';
+        htmlEl.style.opacity = '1';
+        htmlEl.style.webkitTextFillColor = '#fff';
+      });
+    };
+    forceWhite();
+    // Observe les mutations du DOM pour réappliquer le style
+    const observer = new MutationObserver(forceWhite);
+    observer.observe(document.body, { childList: true, subtree: true, attributes: true });
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      observer.disconnect();
+    };
   }, []);
 
   return (
@@ -26,7 +47,7 @@ const Index = () => {
       {/* L'arrière-plan animé doit être placé avant le conteneur principal */}
       <AnimatedBackground />
       
-      <div className="relative min-h-screen bg-transparent text-foreground z-0">
+      <div className="relative min-h-screen bg-transparent text-foreground z-0 force-white-text">
       <Navigation />
       
       {/* Hero Section */}

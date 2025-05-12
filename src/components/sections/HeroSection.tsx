@@ -35,7 +35,7 @@ export const HeroSection = () => {
         }}
       />
 
-      <div className="container mx-auto px-4 flex flex-col items-center justify-center min-h-[80vh] mt-8 md:mt-0">
+      <div className="container mx-auto px-4 flex flex-col items-center justify-center min-h-[80vh] mt-8 md:mt-0 z-10">
         <div className="flex flex-col lg:flex-row items-center mt-10 md:mt-0">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}

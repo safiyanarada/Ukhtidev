@@ -65,14 +65,14 @@ export const ProjectsSection = () => {
 
   return (
     <section className="py-24 relative" id="projects">
-      <div className="absolute inset-0 bg-black/50 md:bg-transparent z-0"></div>
-
+      {/* Overlay noir semi-transparent */}
+      <div className="absolute inset-0 bg-black/50 z-0 pointer-events-none"></div>
       {/* Background Elements */}
       <div className="absolute inset-0 -z-10">
         <div className="absolute top-0 left-0 w-96 h-96 bg-primary/10 rounded-full filter blur-[100px]" />
       </div>
-
-      <div className="container mx-auto px-4">
+      {/* Contenu texte */}
+      <div className="container mx-auto px-4 relative z-10">
         <motion.div 
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -85,25 +85,26 @@ export const ProjectsSection = () => {
               Mes projets
             </h2>
             <p className="mt-6 text-white max-w-2xl mx-auto leading-relaxed">
-            Découvrez une sélection de mes dernières réalisations dans le domaine du web et de l'intelligence artificielle.
-          </p>
+              Découvrez une sélection de mes dernières réalisations.
+            </p>
           </div>
         </motion.div>
 
-        <div className="flex justify-center mb-12">
-          <div className="inline-flex rounded-md glass p-1">
-            {["all", "ai", "web"].map((filter) => (
+        {/* Onglets de filtre - affichés seulement sur md+ */}
+        <div className="flex justify-center mb-12 md:flex">
+          <div className="inline-flex rounded-md glass p-1 md:flex">
+            {['all', 'ai', 'web'].map((filter) => (
               <button
                 key={filter}
                 onClick={() => setSelectedFilter(filter)}
                 className={`px-6 py-2 rounded-md text-sm font-medium transition-colors ${
                   selectedFilter === filter
-                    ? "bg-white/10 text-white"
-                    : "text-white/60 hover:text-white"
-                }`}
-                aria-label={filter === "all" ? "Filtrer tous les projets" : filter === "ai" ? "Filtrer les projets IA" : "Filtrer les projets Web"}
+                    ? 'bg-white/10 text-white'
+                    : 'text-white/60 hover:text-white'
+                } md:block hidden`}
+                aria-label={filter === 'all' ? 'Filtrer tous les projets' : filter === 'ai' ? 'Filtrer les projets IA' : 'Filtrer les projets Web'}
               >
-                {filter === "all" ? "Tous" : filter === "ai" ? "IA" : "Web"}
+                {filter === 'all' ? 'Tous' : filter === 'ai' ? 'IA' : 'Web'}
               </button>
             ))}
           </div>
@@ -135,28 +136,30 @@ export const ProjectsSection = () => {
                       transition={{ type: "spring", stiffness: 200 }}
                       className="glass rounded-xl overflow-hidden"
                     >
-                      <div className="relative aspect-video">
-                        <img 
-                          src={project.image} 
-                          alt={project.title}
-                          className="w-full h-full object-cover"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-6">
-                          <div>
-                            <h3 className="text-xl font-medium mb-2 text-white">{project.title}</h3>
-                            <div className="flex gap-2 flex-wrap">
-                              {project.technologies.map((tech, idx) => (
-                                <span 
-                                  key={idx}
-                                  className="text-xs px-2 py-1 bg-white/10 backdrop-blur-sm rounded-full"
-                                >
-                                  {tech}
-                                </span>
-                              ))}
+                      <a href={project.link} target="_blank" rel="noopener noreferrer">
+                        <div className="relative aspect-video cursor-pointer">
+                          <img 
+                            src={project.image} 
+                            alt={project.title}
+                            className="w-full h-full object-cover"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-6">
+                            <div>
+                              <h3 className="text-xl font-medium mb-2 text-white">{project.title}</h3>
+                              <div className="flex gap-2 flex-wrap">
+                                {project.technologies.map((tech, idx) => (
+                                  <span 
+                                    key={idx}
+                                    className="text-xs px-2 py-1 bg-white/10 backdrop-blur-sm rounded-full"
+                                  >
+                                    {tech}
+                                  </span>
+                                ))}
+                              </div>
                             </div>
                           </div>
                         </div>
-                      </div>
+                      </a>
                     </motion.div>
                   </HoverCardTrigger>
                   <HoverCardContent className="glass border-white/10 w-80">

@@ -55,14 +55,15 @@ export const SkillsSection = () => {
 
   return (
     <section className="py-24 relative" id="skills">
-      <div className="absolute inset-0 bg-black/50 md:bg-transparent z-0"></div>
+      {/* Overlay noir semi-transparent */}
+      <div className="absolute inset-0 bg-black/50 z-0 pointer-events-none"></div>
       {/* Background Elements */}
       <div className="absolute inset-0 -z-10">
         <div className="absolute top-0 right-1/4 w-96 h-96 bg-primary/10 rounded-full filter blur-[100px]" />
         <div className="absolute bottom-1/4 left-1/3 w-64 h-64 bg-accent/10 rounded-full filter blur-[80px]" />
       </div>
-
-      <div className="container mx-auto px-4">
+      {/* Contenu texte */}
+      <div className="container mx-auto px-4 relative z-10">
         <motion.div 
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -138,7 +139,7 @@ export const SkillsSection = () => {
                   <div key={idx} className="embla__slide flex-[0_0_25%] min-w-0 pl-4">
                     <motion.div 
                       whileHover={{ y: -5 }}
-                      className="glass glass-hover rounded-lg p-4 text-center h-full transition-all duration-300 border-2 border-pink-300 drop-shadow-[0_0_12px_#f9a8d4]"
+                      className="glass glass-hover rounded-lg p-4 text-center h-full transition-all duration-300 border-2 border-pink-300 drop-shadow-[0_0_12px_#f9a8d4] flex flex-col items-center justify-center"
                     >
                       <div className="text-white mb-2 flex justify-center">
                         {tech.icon}

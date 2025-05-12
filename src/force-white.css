@@ -1,0 +1,7 @@
+[class*="force-white-text"], 
+[class*="force-white-text"] * {
+  color: #fff !important;
+  text-shadow: none !important;
+  opacity: 1 !important;
+  -webkit-text-fill-color: #fff !important;
+} 
