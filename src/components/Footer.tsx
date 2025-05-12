@@ -40,7 +40,7 @@ const Footer = () => {
                   aria-label="Twitter"
                   className="w-9 h-9 rounded-full glass flex items-center justify-center group"
                 >
-                  <Twitter className="w-4 h-4 text-white/70 group-hover:text-accent transition-colors" />
+                  <Twitter className="w-4 h-4 text-accent md:text-white/70 group-hover:text-accent transition-colors" />
                 </motion.a>
                 <motion.a 
                   whileHover={{ y: -5, scale: 1.1 }}
@@ -49,7 +49,7 @@ const Footer = () => {
                   aria-label="Instagram"
                   className="w-9 h-9 rounded-full glass flex items-center justify-center group"
                 >
-                  <Instagram className="w-4 h-4 text-white/70 group-hover:text-accent transition-colors" />
+                  <Instagram className="w-4 h-4 text-accent md:text-white/70 group-hover:text-accent transition-colors" />
                 </motion.a>
                 <motion.a 
                   whileHover={{ y: -5, scale: 1.1 }}
@@ -58,7 +58,7 @@ const Footer = () => {
                   aria-label="LinkedIn"
                   className="w-9 h-9 rounded-full glass flex items-center justify-center group"
                 >
-                  <Linkedin className="w-4 h-4 text-white/70 group-hover:text-accent transition-colors" />
+                  <Linkedin className="w-4 h-4 text-accent md:text-white/70 group-hover:text-accent transition-colors" />
                 </motion.a>
                 <motion.a 
                   whileHover={{ y: -5, scale: 1.1 }}
@@ -67,7 +67,7 @@ const Footer = () => {
                   aria-label="GitHub"
                   className="w-9 h-9 rounded-full glass flex items-center justify-center group"
                 >
-                  <Github className="w-4 h-4 text-white/70 group-hover:text-accent transition-colors" />
+                  <Github className="w-4 h-4 text-accent md:text-white/70 group-hover:text-accent transition-colors" />
                 </motion.a>
                 <motion.a 
                   whileHover={{ y: -5, scale: 1.1 }}
@@ -76,7 +76,7 @@ const Footer = () => {
                   aria-label="TikTok"
                   className="w-9 h-9 rounded-full glass flex items-center justify-center group"
                 >
-                  <svg viewBox="0 0 256 256" className="w-5 h-5 text-white/70 group-hover:text-accent transition-colors" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <svg viewBox="0 0 256 256" className="w-5 h-5 text-accent md:text-white/70 group-hover:text-accent transition-colors" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g>
                       <path d="M168.5 32c0 30.9 25.1 56 56 56v32c-18.2 0-35.1-5.9-48.7-15.8v60.8c0 39.8-32.2 72-72 72s-72-32.2-72-72 32.2-72 72-72h8v32h-8c-22.1 0-40 17.9-40 40s17.9 40 40 40 40-17.9 40-40V32h24.7z" fill="currentColor"/>
                       <path d="M168.5 32c0 30.9 25.1 56 56 56v32c-18.2 0-35.1-5.9-48.7-15.8v60.8c0 39.8-32.2 72-72 72s-72-32.2-72-72 32.2-72 72-72h8v32h-8c-22.1 0-40 17.9-40 40s17.9 40 40 40 40-17.9 40-40V32h24.7z" fill="currentColor" fillOpacity=".2"/>
