@@ -25,7 +25,7 @@ export const AboutSection = () => {
   return (
     <section className="py-24 relative overflow-hidden" id="about">
       {/* Overlay noir semi-transparent */}
-      <div className="absolute inset-0 bg-black/50 z-0 pointer-events-none"></div>
+      <div className="absolute inset-0 z-0 pointer-events-none bg-black/50 md:bg-transparent"></div>
       {/* Background Elements */}
       <div className="absolute inset-0 -z-10">
         <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-primary/10 rounded-full filter blur-[100px]" />

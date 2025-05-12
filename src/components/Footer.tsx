@@ -8,7 +8,7 @@ const Footer = () => {
   return (
     <footer className="w-full py-12 relative overflow-hidden">
       {/* Overlay noir semi-transparent */}
-      <div className="absolute inset-0 bg-black/20 z-0 pointer-events-none"></div>
+      <div className="absolute inset-0 z-0 pointer-events-none bg-black/20 md:bg-transparent"></div>
       
       {/* Decorative background elements */}
       <div className="absolute inset-0 -z-10">

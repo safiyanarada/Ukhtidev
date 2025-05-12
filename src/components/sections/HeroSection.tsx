@@ -13,7 +13,8 @@ export const HeroSection = () => {
       className="min-h-screen flex items-center relative pt-16 pb-20 overflow-hidden"
       id="home"
     >
-      <div className="absolute inset-0 bg-black/50 md:bg-transparent z-0"></div>
+      {/* Overlay noir semi-transparent */}
+      <div className="absolute inset-0 z-0 pointer-events-none bg-black/50 md:bg-transparent"></div>
 
       {/* Background Elements */}
       <div className="absolute inset-0 -z-10">
