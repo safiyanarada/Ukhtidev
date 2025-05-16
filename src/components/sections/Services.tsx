@@ -1,13 +1,13 @@
 import { motion } from "framer-motion";
 import { Code, Check, Brain, Palette } from "lucide-react";
 
-  <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+  <div className="flex overflow-x-auto md:grid md:grid-cols-3 gap-6 md:gap-8 snap-x snap-mandatory">
     {/* Carte 1 */}
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className="glass rounded-2xl p-6 md:p-8 border border-white/20 shadow-lg relative overflow-hidden group"
+      className="glass rounded-2xl p-6 md:p-8 border border-white/20 shadow-lg relative overflow-hidden group flex-shrink-0 w-full md:w-auto snap-center"
     >
       {/* Light reflection */}
       <div className="absolute -top-40 -right-40 w-80 h-80 bg-primary/5 rounded-full filter blur-[40px] group-hover:bg-primary/10 transition-colors duration-500"></div>
@@ -42,7 +42,7 @@ import { Code, Check, Brain, Palette } from "lucide-react";
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: 0.1 }}
-      className="glass rounded-2xl p-6 md:p-8 border border-white/20 shadow-lg relative overflow-hidden group"
+      className="glass rounded-2xl p-6 md:p-8 border border-white/20 shadow-lg relative overflow-hidden group flex-shrink-0 w-full md:w-auto snap-center"
     >
       {/* Light reflection */}
       <div className="absolute -top-40 -right-40 w-80 h-80 bg-secondary/5 rounded-full filter blur-[40px] group-hover:bg-secondary/10 transition-colors duration-500"></div>
@@ -77,7 +77,7 @@ import { Code, Check, Brain, Palette } from "lucide-react";
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: 0.2 }}
-      className="glass rounded-2xl p-6 md:p-8 border border-white/20 shadow-lg relative overflow-hidden group"
+      className="glass rounded-2xl p-6 md:p-8 border border-white/20 shadow-lg relative overflow-hidden group flex-shrink-0 w-full md:w-auto snap-center"
     >
       {/* Light reflection */}
       <div className="absolute -top-40 -right-40 w-80 h-80 bg-accent/5 rounded-full filter blur-[40px] group-hover:bg-accent/10 transition-colors duration-500"></div>
