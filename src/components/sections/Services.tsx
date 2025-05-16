@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Code, Check, Brain, Palette } from "lucide-react";
 
-  <div className="flex overflow-x-auto md:grid md:grid-cols-3 gap-6 md:gap-8 snap-x snap-mandatory">
+  <div className="flex overflow-x-auto md:grid md:grid-cols-3 gap-6 md:gap-8 snap-x snap-mandatory flex-nowrap relative z-10">
     {/* Carte 1 */}
     <motion.div
       initial={{ opacity: 0, y: 20 }}
